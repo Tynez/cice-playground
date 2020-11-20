@@ -1,25 +1,18 @@
 .wrapper {
   display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
-.aside,
 .content {
   display: flex;
-  flex-direction: column;
+  flex: 4;
 }
 
 .box {
   flex: 1;
 }
 
-.aside {
-  flex: 1;
-}
-
-.content {
-  flex: 4;
-}
-
 .main-content {
-  flex: 4;
+  flex: 3;
 }

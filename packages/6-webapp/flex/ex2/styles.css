@@ -2,16 +2,16 @@
   display: flex;
 }
 
+.content {
+  display: flex;
+  flex-direction: column;
+  flex: 4;
+}
+
 .box {
   flex: 1;
 }
 
-.content {
-  display: flex;
-  flex-direction: column;
-  flex: 5;
-}
-
 .main {
-  flex: 5;
+  flex: 4;
 }

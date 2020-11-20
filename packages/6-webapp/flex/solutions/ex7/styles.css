@@ -3,23 +3,27 @@
 }
 
 .aside,
-.content {
+.main {
   display: flex;
   flex-direction: column;
-}
-
-.box {
-  flex: 1;
 }
 
 .aside {
   flex: 1;
 }
 
+.main {
+  flex: 2;
+}
+
+.links {
+  flex: 2;
+}
+
 .content {
   flex: 4;
 }
 
-.main-content {
-  flex: 4;
+.hidden {
+  visibility: hidden;
 }
