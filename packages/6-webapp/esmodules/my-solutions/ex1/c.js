@@ -1,3 +1,3 @@
 export default function showFileName() {
-  console.log('Has seleccionado el archivo c.js')
+  console.log('Hi from c.js')
 }
