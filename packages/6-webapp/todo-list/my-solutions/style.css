@@ -1,0 +1,13 @@
+.complete > p {
+  text-decoration: line-through;
+  color: hsla(0, 0%, 0%, 0.4);
+}
+#todo-list li {
+  display: flex;
+  align-items: center;
+}
+#todo-list li span {
+  margin-left: 10px;
+  color: red;
+  cursor: pointer;
+}
