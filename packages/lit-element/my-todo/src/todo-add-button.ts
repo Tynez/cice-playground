@@ -1,14 +1,14 @@
 import { LitElement, customElement,  html, css } from 'lit-element';
 import { general } from "./general"
 
-@customElement('app-todo')
-export class Todo extends LitElement {
+@customElement('app-add-button')
+export class TodoAddButton extends LitElement {
 
   static get styles() {
     return [general, css``]
   }
 
   render() {
-    return html`<li><slot></slot></li>`
+    return html`<button>Add nre</button>`
   }
 }

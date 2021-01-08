@@ -1,16 +1,15 @@
-import { LitElement, customElement, html, property } from 'lit-element';
+import { LitElement, customElement, html, css, property } from 'lit-element';
+import { general } from "./general"
 
 @customElement('app-todo-list')
 export class TodoList extends LitElement {
-  @property({ type: Array })
-  todos: { text: string }[] = [
-    {
-      text: 'foo',
-    },
-    {
-      text: 'bar',
-    },
-  ]
+
+  @property({type: Array})
+  todos: Todo[] = []
+
+  static get styles() {
+    return [general, css``]
+  }
 
   render() {
     return html`

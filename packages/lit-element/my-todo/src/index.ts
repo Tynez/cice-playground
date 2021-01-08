@@ -1,3 +1,7 @@
 import './app-root'
 import './todo'
-import  './todo-list'
+import './todo-list'
+import './todo-add-button'
+import './todo-input'
+import './todo-create'
+import './todo-todo'
