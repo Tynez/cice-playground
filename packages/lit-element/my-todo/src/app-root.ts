@@ -20,6 +20,7 @@ export class AppRoot extends LitElement {
   private onTodoCreated( event: CustomEvent ){
     this.todos = [...this.todos, { text: event.detail.text}]
   }
+
   render() {
     return html`<main>
       <app-todo-create @on-todo-create="${this.onTodoCreated}"></app-todo-create>

@@ -4,7 +4,8 @@ module.exports = {
     public: { url: '/', static: true },
     src: { url: '/dist' },
   },
-  plugins: ['@snowpack/plugin-babel', '@snowpack/plugin-dotenv', '@snowpack/plugin-typescript'],
+  plugins: ['@snowpack/plugin-babel', '@snowpack/plugin-dotenv', '@snowpack/plugin-typescript',
+  ],
   install: [
     /* ... */
   ],
@@ -15,6 +16,7 @@ module.exports = {
     /* ... */
   },
   buildOptions: {
+    sourceMaps: true,
     /* ... */
   },
   proxy: {

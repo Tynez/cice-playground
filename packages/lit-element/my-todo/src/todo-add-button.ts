@@ -9,6 +9,6 @@ export class TodoAddButton extends LitElement {
   }
 
   render() {
-    return html`<button>Add nre</button>`
+    return html`<button>Add new</button>`
   }
 }

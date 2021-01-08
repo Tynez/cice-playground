@@ -1,5 +1,6 @@
 import { LitElement, customElement, html, css, property } from 'lit-element';
 import { general } from "./general"
+import type { Todo } from './todo-todo'
 
 @customElement('app-todo-list')
 export class TodoList extends LitElement {
