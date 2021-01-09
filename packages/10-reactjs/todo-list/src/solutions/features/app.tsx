@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import { FC, useState } from 'react'
 import { Todo } from './todo'
 import styles from './app.module.css'
 import { bind } from '../utils/bind'
 
 const cx = bind(styles)
 
-export const App: React.FC = () => {
+export const App: FC = () => {
   const [todos, setTodos] = useState<Todo[]>([])
 
   function createTodo(todoText: string) {
@@ -14,17 +14,17 @@ export const App: React.FC = () => {
   }
 
   const [todoText, setTodoText] = useState('')
-  const isTodoDuplicated = todos.map((todo) => todo.text).includes(todoText)
+  const isTodoDuplicated = todos.map(todo => todo.text).includes(todoText)
 
   const clearTodo = () => setTodoText('')
 
   function completeTodo(id: number) {
     setTodos(
-      todos.map((todo) => {
+      todos.map(todo => {
         if (todo.id === id) {
           return {
             ...todo,
-            completed: !todo.completed,
+            completed: !todo.completed
           }
         }
 
@@ -36,14 +36,14 @@ export const App: React.FC = () => {
   return (
     <main>
       <ul>
-        {todos.map((todo) => (
+        {todos.map(todo => (
           <li onClick={() => completeTodo(todo.id)} className={cx({ completed: todo.completed })}>
             {todo.text}
           </li>
         ))}
       </ul>
       <form
-        onSubmit={(event) => {
+        onSubmit={event => {
           event.preventDefault()
           createTodo(todoText)
           clearTodo()
@@ -51,7 +51,7 @@ export const App: React.FC = () => {
       >
         <label>
           Todo
-          <input value={todoText} onChange={(event) => setTodoText(event.target.value)} />
+          <input value={todoText} onChange={event => setTodoText(event.target.value)} />
         </label>
         <button onClick={clearTodo}>Clear todo</button>
         <button type="submit" disabled={isTodoDuplicated}>
