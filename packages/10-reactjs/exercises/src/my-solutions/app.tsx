@@ -3,6 +3,7 @@ import { BrowserRouter, Link, Route } from 'react-router-dom'
 import { ExerciseFive } from './exercise-five'
 import { ExerciseFour } from './exercise-four'
 import { ExerciseSix } from './exercise-six'
+import { ExerciseNine } from './exercise-nine'
 
 export const App: FC = () => {
   return (
@@ -10,6 +11,7 @@ export const App: FC = () => {
       <Link to="/exercise-four">Exercise four</Link>
       <Link to="/exercise-five">Exercise five</Link>
       <Link to="/exercise-six">Exercise six</Link>
+      <Link to="/exercise-nine">Exercise nine</Link>
 
       <Route path="/exercise-four">
         <ExerciseFour />
@@ -19,6 +21,9 @@ export const App: FC = () => {
       </Route>
       <Route path="/exercise-six">
         <ExerciseSix />
+      </Route>
+      <Route path="/exercise-nine">
+        <ExerciseNine />
       </Route>
     </BrowserRouter>
   )
