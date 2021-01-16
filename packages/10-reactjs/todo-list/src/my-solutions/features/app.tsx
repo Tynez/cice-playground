@@ -1,23 +1,77 @@
-import { FC, useEffect, useState } from 'react'
+import { FC, useState } from 'react'
+import styles from './app.module.css'
+import { bind } from '../utils/bind'
+import { Button } from './button'
+
+const cx = bind(styles)
+
+interface Todo {
+  id: number
+  text: string
+  completed: boolean
+}
 
 export const App: FC = () => {
-  const [taskTitle, setTaskTitle] = useState('')
-  const [todoList, setTodoList] = useState<string[]>([])
+  const [todoText, setTodoText] = useState('')
+  const [todos, setTodos] = useState<Todo[]>([
+    {
+      id: 1,
+      text: 'hola',
+      completed: true
+    },
+    {
+      id: 2,
+      text: 'adios',
+      completed: false
+    }
+  ])
 
-  const addTask = () => {
-    setTodoList([...todoList, taskTitle])
-    setTaskTitle('')
+  function createTodo() {
+    setTodos([
+      ...todos,
+      { id: Math.floor(Math.random() * 10_000), text: todoText, completed: false }
+    ])
+    setTodoText('')
   }
+
+  function completeTodo(id: number) {
+    setTodos(
+      todos.map(todo => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            completed: !todo.completed
+          }
+        }
+
+        return todo
+      })
+    )
+  }
+
   return (
-    <>
-      <h1>Todo List</h1>
-      <input type="text" value={taskTitle} onChange={e => setTaskTitle(e.target.value)} />
-      <button onClick={addTask}>Add task</button>
+    <main>
+      <header>
+        <input type="text" value={todoText} onChange={e => setTodoText(e.target.value)} />
+        <Button
+          onClick={() => {
+            createTodo()
+          }}
+        >
+          <strong>Create todo</strong>
+        </Button>
+      </header>
       <ul>
-        {todoList.map((task, key) => (
-          <li key={key}>{task}</li>
+        {todos.map(todo => (
+          <li
+            onClick={() => completeTodo(todo.id)}
+            key={todo.id}
+            className={cx({ completed: todo.completed })}
+          >
+            {todo.text}
+          </li>
         ))}
       </ul>
-    </>
+    </main>
   )
 }
