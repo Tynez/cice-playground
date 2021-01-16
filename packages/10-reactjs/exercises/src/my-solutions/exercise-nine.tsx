@@ -1,8 +1,19 @@
-import { FC, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 
 const useViewPortDimensions = () => {
+  //Todo: Probar con objeto
   const [height, setHeight] = useState(window.innerHeight)
   const [width, setWidth] = useState(window.innerWidth)
+
+  useEffect(() => {
+    const updateViewportDimensions = () => {
+      setHeight(window.innerHeight)
+      setWidth(window.innerWidth)
+    }
+    window.addEventListener('resize', updateViewportDimensions)
+
+    return () => window.removeEventListener('resize', updateViewportDimensions)
+  }, [])
 
   return {
     height,
